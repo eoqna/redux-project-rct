@@ -1,7 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "../slices/numberSlice";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { increment, decrement } from "../slices/countSlice";
 
 const BorderLayout = styled.div`
   border: 5px solid red;
@@ -44,7 +43,7 @@ const Left2 = () => {
 };
 
 const Left3 = () => {
-  const number = useSelector((state: any) => state.number.value);
+  const number = useAppSelector((state) => state.count.value);
 
   return (
     <BorderLayout>
@@ -72,7 +71,7 @@ const Right2 = () => {
 };
 
 const Right3 = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <BorderLayout>
